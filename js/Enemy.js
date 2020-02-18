@@ -9,7 +9,7 @@ class Enemy {
     this.y = -ENEMY_HEIGHT;
     this.destroyed = false;
     this.domElement = document.createElement("img");
-    this.domElement.src = "./images/enemy.png";
+    this.domElement.src = "./images/butch.png";
     this.domElement.style.position = "absolute";
     this.domElement.style.left = `${this.x}px`;
     this.domElement.style.top = `${this.y}px`;

@@ -1,3 +1,9 @@
+// bringing in click to start methods
+
+const start = document.getElementById("start");
+const menu = document.getElementById("menu");
+const intro = document.getElementById("intro");
+
 class Engine {
   constructor(theRoot) {
     this.root = theRoot;
@@ -22,11 +28,25 @@ class Engine {
       this.enemies.push(new Enemy(this.root, spot));
     }
     if (this.isPlayerDead()) {
-      // window.alert("Game over");
+      death.style.display = "block";
+      function timedRefresh(timeoutPeriod) {
+        setTimeout("location.reload(true);", timeoutPeriod);
+      }
+      window.onload = timedRefresh(8000);
+      return;
+    }
+    if (this.player.x === 740) {
+      win.style.display = "block";
+      function fuck(out) {
+        setTimeout("location.reload(true);", out);
+      }
+      window.onload = fuck(4000);
       return;
     }
     setTimeout(this.gameLoop, 20);
   };
+
+  //hitbox detection//
 
   isPlayerDead = () => {
     let x = false;
@@ -37,11 +57,10 @@ class Engine {
         item.x <= this.player.x + PLAYER_WIDTH &&
         item.y + ENEMY_HEIGHT >= this.player.y &&
         item.y <= this.player.y + PLAYER_HEIGHT
-      )
-        console.log("x");
-      x = true;
+      ) {
+        x = true;
+      }
     }, this);
-    console.log("x", x);
     return x;
   };
 }

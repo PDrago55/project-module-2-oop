@@ -18,4 +18,5 @@ const MAX_ENEMIES = 3;
 const PLAYER_WIDTH = 75;
 const PLAYER_HEIGHT = 54;
 
-
+const ENEMY_SPACE_WIDTH = 300;
+const ENEMY_SPACE_HEIGHT = 500;
