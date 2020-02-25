@@ -1,14 +1,23 @@
 <html>
-<head>    
-    <title>Nyan Kat</title> 
-</head> 
-<body>    
-    <div id="app"></div> 
-    <script src="js/data.js"></script> 
-    <script src="js/Enemy.js"></script> 
-    <script src="js/engine-utilities.js"></script> 
-    <script src="js/Engine.js"></script> 
-    <script src="js/Player.js"></script> 
-    <script src="js/main.js"></script> 
-</body> 
-</html> 
+  <head>
+    <title>Code Fiction</title>
+    <link href="style.css" rel="stylesheet"></link>
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="menu">
+      <div id="welcome">Welcome to Code Fiction...</div>
+      <button onclick="gameStart()" id="start">Start the Game</button>
+      <button onclick="help()" id="intro">Instructions</button>
+      <div id="helpMe"> You are VINCE VEGA! Get to the other side of the lane and DODGE Butch. You have a dinner date with Marsellus Wallaces' wife. Use the left / right arrow keys to navigate
+      </div>
+    </div>
+    <script src="js/data.js"></script>
+    <script src="js/Enemy.js"></script>
+    <script src="js/engine-utilities.js"></script>
+    <script src="js/Engine.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/main.js"></script>
+    <!-- <script src="js/menu.js"></script> -->
+  </body>
+</html>

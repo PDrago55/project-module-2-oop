@@ -1,23 +1,46 @@
-// We create an instance of the Engine class. Looking at our index.html,
-// we see that it has a div with an id of \`"app"\`  
 const gameEngine = new Engine(document.getElementById("app"));
-// keydownHandler is a variable that refers to a function. The function has one parameter
-// (does the parameter name matter?) which is called event. As we will see below, this function
-// will be called every time the user presses a key. The argument of the function call will be an object.
-// The object will contain information about the key press, such as which key was pressed. 
+
+// const Menu =
 const keydownHandler = event => {
-    // event.code contains a string. The string represents which key was press. If the
-    // key is left, then we call the moveLeft method of gameEngine.player (where is this method defined?)
-    if (event.code === "ArrowLeft") {
-        gameEngine.player.moveLeft();
-    }
-    // If \`event.code\` is the string that represents a right arrow keypress,
-    // then move our hamburger to the right
-    if (event.code === "ArrowRight") {
-        gameEngine.player.moveRight();
-    }
-}
-// We add an event listener to document. document the ancestor of all DOM nodes in the DOM.
+  if (event.code === "ArrowLeft") {
+    gameEngine.player.moveLeft();
+  }
+  if (event.code === "ArrowRight") {
+    gameEngine.player.moveRight();
+  }
+};
 document.addEventListener("keydown", keydownHandler);
-// We call the gameLoop method to start the game
-gameEngine.gameLoop();
+
+///creating a timer to start game
+
+gameStart = () => {
+  function clock() {
+    document.getElementById("start").innerHTML = --c;
+    document.getElementById("intro");
+    if (c === 0) {
+      clearInterval(timer);
+      // document.getElementById('countdown').innerText = "GO!"
+      menu.style.display = "none";
+      start.style.display = "none";
+      intro.style.display = "none";
+      console.log("remove instructions");
+      gameEngine.gameLoop();
+    }
+  }
+  let timer = setInterval(clock, 1000);
+  let c = 4;
+};
+
+//toggle menubar for intructions
+
+let $toggleDiv = document.getElementById("helpMe");
+let toggled = true;
+help = () => {
+  if (!toggled) {
+    toggled = true;
+    $toggleDiv.style.display = "none";
+  } else if (toggled) {
+    toggled = false;
+    $toggleDiv.style.display = "block";
+  }
+};
